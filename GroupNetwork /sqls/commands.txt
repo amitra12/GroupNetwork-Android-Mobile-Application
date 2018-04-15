@@ -1,0 +1,54 @@
+cd C:\eclipse\workspace\GroupNetwork\sqls\
+
+mysql --host 127.0.0.1 --port 3306 -u root -p < dbschema.sql
+
+mysqlroot
+
+
+mysql --host 127.0.0.1 --port 3306 -u root -p group_talk_db
+
+
+FOR AWS MySQL Database use below command
+-------------------------------------------
+
+mysql --host sensor-database.ckxiqr8myjaj.us-west-2.rds.amazonaws.com --port 3306 -u root -p 
+
+
+mysql --host sensor-database.ckxiqr8myjaj.us-west-2.rds.amazonaws.com --port 3306 -u root -p < dbschema.sql
+
+Amazon Password - mysqlroot
+
+
+Commands to deploy web application on AWS EC2 instance
+-------------------------------------------------------
+
+1. Export the project as war file
+2. COpy the war file using WinSCP to AWS machine at /home/ec2-user/project_files
+3. Use below commands to start this app on tomcat running on AWS
+cd /home/ec2-user/project_files
+sudo cp GroupNetwork.war /usr/share/tomcat8/webapps/
+sudo service tomcat8 start
+
+sudo service tomcat8 stop
+ 
+
+
+sudo yum update
+sudo yum install tomcat8
+sudo yum install java-1.8.0
+clear
+sudo yum remove java-1.7.0-openjdk
+
+
+Run Bus Sensor Network java App 
+---------------------------------
+cd /home/ec2-user/project_files
+java -jar mobile_sensor_network.jar > outout.log &
+
+
+cd /home/ec2-user/project_files
+sudo cp Sensor_Project.war /usr/share/tomcat8/webapps/
+
+
+sudo service tomcat8 start
+sudo service tomcat8 stop
